@@ -5,7 +5,7 @@ This is a small script that I use to hash and save secrets for use in Python scr
 If you don't have access to a secret store like Vault and you don't want to use environment variables because your script might be copied and run from different locations then this is a good alternative.
 
 ## Requirements
-The only requirement is the cryptoography package.
+The only requirement is the cryptography package.
 - https://pypi.org/project/cryptography/
 
 You can get it by running:
@@ -25,7 +25,7 @@ TOML_FILE = "flokenes.toml"
 CRYPTO_MODULE = "crypto_functions.py"
 ```
 
-When you run hashing_setup.py it asks you to enter your secret, it takes that secret, hashes it, and saves it to the toml file using a random name as the descriptor. If the toml file does not exist it will create it with the name you specified.
+When you run hashing_setup.py it asks you to enter your secret, it takes that secret, hashes it, and saves it to the toml file using a random name as the descriptor. If the toml file doesn't exist it will create it with the name you specified.
 
 The script will then create a Python function to read that line from the toml file, decrypt the hashed secret, and then return the secret as a string type variable. It will save this function in the filename you specified as the CRYPTO_MODULE. Again, if that file doesn't exist it will create it.
 
@@ -37,8 +37,8 @@ Enter function name: get_widget_username
 
 from crypto_functions import get_widget_username
 widget_username = get_widget_username()
-
-
+```
+```
 Enter secret: Password1234!
 Enter function name: get_widget_password
 
@@ -57,6 +57,7 @@ secret = gAAAAABknNkipPJ8eNrZt5Ip1tnYvkp3cjPxR7WAG2XsB69o3he11ckE_yXqGAyHW9nT3qZ
 
 This is what the contents of the CRYPTO_MODULE will look like:
 ```
+# You will need to add these import statements to your CRYPTO_MODULE
 import configparser
 from cryptography.fernet import Fernet
 
@@ -84,7 +85,7 @@ def get_widget_password():
     return plain_text_encryptedpassword
 ```
 
-And to tie it all together this is what the contents of your Python script will look like in order to access the secret:
+And to tie it all together, this is an example of how you would code your Python script in order to access the secrets:
 ```
 from crypto_functions import get_widget_username, get_widget_password
 
@@ -94,7 +95,7 @@ def _connect_to_widget(widget_ip):
     .....
 ```
 
-You can add as many secrets as you need for your script, hashing_setup.py will keep appending new ones to the end of the toml file and CRYPTO_MODULE.
+You can add as many secrets as you need for your script, hashing_setup.py will keep appending new ones to the end of the toml file and the CRYPTO_MODULE.
 
 Note!!! If you are syncing to GitHub you will want to add the toml file to your .gitignore. Even though they are encrypted you don't want the secrets out there for anyone to copy.
 
