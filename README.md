@@ -6,7 +6,6 @@ If you don't have access to a secret store like Vault and you don't want to use 
 
 ## Requirements
 The only requirement is the cryptography package.
-- https://pypi.org/project/cryptography/
 
 You can get it by running:
 ```
