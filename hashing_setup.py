@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 ----------------------------------------------
-Created By: Matthew White <mwhite@sscinc.com>
+Created By: Matt White <https://github.com/BigX23>
 Created Date: 01/2023
 Version: 1.0
-Copyright (c) 2023, SS&C Technologies
 ----------------------------------------------
 
 hashing_setup.py
