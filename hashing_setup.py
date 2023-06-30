@@ -9,7 +9,7 @@ Version: 1.0
 
 hashing_setup.py
 
-This module is used to encrypt a secret and write the ciphered text to a toml file and then create
+This module is used to encrypt a secret and write the ciphered text to a toml file, and then create
 a function that will read the toml file, decrypt the secret, and return it.
 """
 
